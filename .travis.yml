@@ -67,7 +67,7 @@ script:
      javac -version &&
      export TRAVIS_REPO_SLUG=$TRAVIS_REPO_SLUG &&
      export TRAVIS_BUILD_DIR=$TRAVIS_BUILD_DIR &&
-     ./.travis-build.sh $GROUP $BUILDJDK || sleep 1m"
+     ./.travis-build.sh $GROUP $BUILDJDK"
 
 jobs:
   include:
