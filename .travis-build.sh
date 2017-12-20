@@ -134,10 +134,8 @@ fi
 if [[ "${GROUP}" == "jdk.jar" || "${GROUP}" == "all" ]]; then
   cd checker
   ant jdk.jar
-  sleep 1m
   ## Run the tests for the type systems that use the annotated JDK
   ant index-tests lock-tests nullness-tests-nobuildjdk
-  sleep 1m
 fi
 
 if [[ "${GROUP}" == "misc" || "${GROUP}" == "all" ]]; then
@@ -158,16 +156,13 @@ if [[ "${GROUP}" == "misc" || "${GROUP}" == "all" ]]; then
   ant javadoc-private
   make -C docs/manual all
 
-  sleep 1m
   # jsr308-langtools documentation (it's kept at Bitbucket rather than GitHub)
   # Not just "make" because the invocations of "hevea -exec xxcharset.exe" fail.
   # I cannot reproduce the problem locally and it isn't important enough to fix.
   # make -C ../jsr308-langtools/doc
   make -C ../jsr308-langtools/doc pdf
 
-  sleep 1m
   # HTML legality
   ant html-validate
 
 fi
-sleep 1m
